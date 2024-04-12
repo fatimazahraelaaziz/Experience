@@ -1,8 +1,6 @@
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.time.Duration;
-import java.time.Instant;
 import java.util.concurrent.ExecutionException;
 
 
