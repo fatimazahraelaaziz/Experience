@@ -200,13 +200,13 @@ public class BinPackPartitionAssignor extends AbstractAssignor {
         for(String c: consumers) {
             LOGGER.info("We have the following consumers  out of Kafka {}", c);
         }
-        List<Consumer> asscons = callForAssignment();
+        List<ConsumerGrpc> asscons = callForAssignment();
         int controllerconsindex = 0;
         for (String co : consumers) {
             LOGGER.info("consumer out of controller  {}", asscons.get(controllerconsindex).getId());
             List<TopicPartition> listtp = new ArrayList<>();
             LOGGER.info("Assigning for kafka consumer {}", co);
-            for (Partition p : asscons.get(controllerconsindex).getAssignedPartitionsList()) {
+            for (PartitionGrpc p : asscons.get(controllerconsindex).getAssignedPartitionsList()) {
                 TopicPartition tp = new TopicPartition(topic, p.getId());
                 listtp.add(tp);
                 LOGGER.info("Added partition {} to  consumer {}", tp.partition(),
@@ -236,7 +236,7 @@ public class BinPackPartitionAssignor extends AbstractAssignor {
         return consumersPerTopic;
     }
 
-    private static List<Consumer> callForAssignment() {
+    private static List<ConsumerGrpc> callForAssignment() {
         ManagedChannel managedChannel = ManagedChannelBuilder.
                 forAddress("assignmentservice", 5002)
                 .usePlaintext()
@@ -250,14 +250,14 @@ public class BinPackPartitionAssignor extends AbstractAssignor {
         AssignmentResponse reply = assignmentServiceBlockingStub.getAssignment(request);
 
         LOGGER.info("We have the following consumers");
-        for (Consumer c : reply.getConsumersList())
+        for (ConsumerGrpc c : reply.getConsumersList())
             LOGGER.info("consumer {}", c.getId());
 
         LOGGER.info("We have the following Assignment");
 
-        for (Consumer c : reply.getConsumersList()) {
+        for (ConsumerGrpc c : reply.getConsumersList()) {
             LOGGER.info("Consumer {} has the following Assignment " , c.getId());
-            for (Partition p : c.getAssignedPartitionsList()) {
+            for (PartitionGrpc p : c.getAssignedPartitionsList()) {
                 LOGGER.info("partition {}" ,  p.getId());
 
             }

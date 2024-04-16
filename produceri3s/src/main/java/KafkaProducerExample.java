@@ -25,7 +25,7 @@ public class KafkaProducerExample {
         producer = new KafkaProducer<String, Customer>(props);
          startServer();
 
-        OldWorkload.startWorkloadUniformBatch100();
+        OldWorkload.startWorkload();
 
     }
     /*new ServerThread() is an instance of a class that implements the Runnable interface. The Runnable interface should implement a public method called run() which contains the code that will be executed in the new thread.

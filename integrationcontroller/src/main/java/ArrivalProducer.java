@@ -16,15 +16,11 @@ public class ArrivalProducer {
     static {
         topicpartitions = new ArrayList<>();
 
-
-
         for (int i = 0; i <= 4; i++) {
             topicpartitions.add(new Partition(i, 0, 0));
 
         }
     }
-
-
 
     public static void callForArrivals() {
         ManagedChannel managedChannel = ManagedChannelBuilder.forAddress("arrivalservice",
@@ -34,8 +30,8 @@ public class ArrivalProducer {
         ArrivalServiceGrpc.ArrivalServiceBlockingStub arrivalServiceBlockingStub =
                 ArrivalServiceGrpc.newBlockingStub(managedChannel);
         ArrivalRequest request = ArrivalRequest.newBuilder()
-                .setArrivalrequest("Give me the arrival rate plz").build();
-        ArrivalResponse reply = arrivalServiceBlockingStub.consumptionRate(request);
+                .setArrivalrequest("Give me the arrival rate please").build();
+        ArrivalResponse reply = arrivalServiceBlockingStub.arrivalRate(request);
         log.info("Arrival from the producer is {}", reply);
         totalArrivalrate = reply.getArrival();
         double partitionArrival = reply.getArrival()/5.0;

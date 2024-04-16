@@ -48,15 +48,17 @@ public class Lag {
         Map<TopicPartition, ListOffsetsResult.ListOffsetsResultInfo> latestOffsets =
                 admin.listOffsets(requestLatestOffsets).all().get();
          totalLag=0L;
-        for (int i = 0; i < 5; i++) {
+         
+         for (int i = 0; i < 5; i++) {
             TopicPartition t = new TopicPartition(topic, i);
-            long latestOffset = latestOffsets.get(t).offset();
-            long committedoffset = committedOffsets.get(t).offset();
-            partitions.get(i).setLag(latestOffset - committedoffset);
-            ArrivalProducer.topicpartitions.get(i).setLag(latestOffset-committedoffset);
+            Long latestOffset = latestOffsets.get(t) != null ? latestOffsets.get(t).offset() : 0L;
+            Long committedOffset = committedOffsets.get(t) != null ? committedOffsets.get(t).offset() : 0L;
+            partitions.get(i).setLag(latestOffset - committedOffset);
+            ArrivalProducer.topicpartitions.get(i).setLag(latestOffset - committedOffset);
             totalLag += partitions.get(i).getLag();
             log.info("partition {} has lag {}", i, partitions.get(i).getLag());
         }
+        
         //addParentLag(totalLag);
         log.info("total lag {}", totalLag);
     }

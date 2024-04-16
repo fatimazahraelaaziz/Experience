@@ -14,10 +14,6 @@
     <artifactId>i3s</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <properties>
-        <slf4j-simple.version>1.6.2</slf4j-simple.version>
-    </properties>
-
    <dependencies>
     <dependency>
         <groupId>org.slf4j</groupId>

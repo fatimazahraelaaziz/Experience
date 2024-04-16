@@ -69,7 +69,7 @@ public class BinPackState2 {
             if (partition.getLag() > mu*wsla*fup) {
                 log.info("Since partition {} has lag {} higher than consumer capacity times wsla {}" +
                         " we are truncating its lag", partition.getId(), partition.getLag(), mu*wsla* fup);
-                partition.setLag((long)(mu*wsla* fup/*dynamicAverageMaxConsumptionRate*wsla*/));
+                partition.setLag((long)(mu*wsla*fup/*dynamicAverageMaxConsumptionRate*wsla*/));
             }
         }
         //if a certain partition has an arrival rate  higher than R  set its arrival rate  to R

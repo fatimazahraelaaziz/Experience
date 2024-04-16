@@ -9,9 +9,7 @@ C:\Users\hp\Experience\integrationcontroller\target\generated-sources\protobuf\j
 C:\Users\hp\Experience\integrationcontroller\target\generated-sources\protobuf\java\AssignmentResponseOrBuilder.java
 C:\Users\hp\Experience\integrationcontroller\target\generated-sources\protobuf\grpc-java\AssignmentServiceGrpc.java
 C:\Users\hp\Experience\integrationcontroller\target\generated-sources\protobuf\java\ConsumerGrpcOrBuilder.java
-C:\Users\hp\Experience\integrationcontroller\target\generated-sources\protobuf\java\RateRequestOrBuilder.java
 C:\Users\hp\Experience\integrationcontroller\src\main\java\BinPackState2.java
-C:\Users\hp\Experience\integrationcontroller\target\generated-sources\protobuf\java\RateResponseOrBuilder.java
 C:\Users\hp\Experience\integrationcontroller\target\generated-sources\protobuf\java\ConsumerGrpc.java
 C:\Users\hp\Experience\integrationcontroller\target\generated-sources\protobuf\java\ArrivalResponseOrBuilder.java
 C:\Users\hp\Experience\integrationcontroller\src\main\java\Partition.java
@@ -24,6 +22,4 @@ C:\Users\hp\Experience\integrationcontroller\target\generated-sources\protobuf\j
 C:\Users\hp\Experience\integrationcontroller\target\generated-sources\protobuf\grpc-java\ArrivalServiceGrpc.java
 C:\Users\hp\Experience\integrationcontroller\src\main\java\ArrivalProducer.java
 C:\Users\hp\Experience\integrationcontroller\target\generated-sources\protobuf\java\ArrivalRequestOrBuilder.java
-C:\Users\hp\Experience\integrationcontroller\target\generated-sources\protobuf\java\RateRequest.java
 C:\Users\hp\Experience\integrationcontroller\src\main\java\AssignmentServer.java
-C:\Users\hp\Experience\integrationcontroller\target\generated-sources\protobuf\java\RateResponse.java
