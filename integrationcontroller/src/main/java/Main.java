@@ -8,7 +8,7 @@ import java.util.concurrent.ExecutionException;
 public class Main {
 
     private static final Logger log = LogManager.getLogger(Main.class);
-     static BinPackState2 bps;
+    static BinPackState2 bps;
     static BinPackLag2 bpl;
 
 

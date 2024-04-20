@@ -17,7 +17,7 @@ public class BinPackLag2 {
 
     private static final Logger log = LogManager.getLogger(BinPackLag2.class);
 
-    static   Instant LastUpScaleDecision = Instant.now();
+    static Instant LastUpScaleDecision = Instant.now();
     
     static double wsla = Double.valueOf(System.getenv("WSLA"));
 
