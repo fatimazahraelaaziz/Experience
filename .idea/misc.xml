@@ -6,6 +6,7 @@
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/ControllerWithAssignment/pom.xml" />
+        <option value="$PROJECT_DIR$/variableconsumer/pom.xml" />
       </list>
     </option>
   </component>

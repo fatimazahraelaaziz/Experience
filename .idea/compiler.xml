@@ -7,10 +7,13 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="i3s" />
-        <module name="IntegrationController" />
+        <module name="graphcontroller2" />
         <module name="variableconsumer" />
         <module name="controllerassign" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="IntegrationController" target="11" />
+    </bytecodeTargetLevel>
   </component>
 </project>

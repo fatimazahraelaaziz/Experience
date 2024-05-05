@@ -9,10 +9,10 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>IntegrationController</module>
-        <module>produceri3s</module>
+        <!--module>IntegrationController</module-->
+        <module>variableconsumer</module>
         <module>graphcontroller2</module>
-        <!--module>variableconsumer</module-->
+        <module>produceri3s</module>
     </modules>
 
     <properties>

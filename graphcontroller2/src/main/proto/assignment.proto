@@ -25,3 +25,5 @@ message AssignmentResponse {
 service AssignmentService {
   rpc getAssignment(AssignmentRequest) returns (AssignmentResponse) {}
 }
+
+
