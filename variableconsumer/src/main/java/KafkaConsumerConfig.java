@@ -17,7 +17,7 @@ public class KafkaConsumerConfig {
 
     public KafkaConsumerConfig(String bootstrapServers, String topic, String groupId,
                                String clientRack, Long messageCount, String sleep,
-                               String additionalConfig) {
+                               String additionalConfig, int partitionPercentage) {
         this.bootstrapServers = bootstrapServers;
         this.topic = topic;
         this.groupId = groupId;
@@ -25,6 +25,7 @@ public class KafkaConsumerConfig {
         this.messageCount = messageCount;
         this.sleep = sleep;
         this.additionalConfig = additionalConfig;
+        this.partitionPercentage = partitionPercentage;
     }
     public static KafkaConsumerConfig fromEnv() {
         String bootstrapServers = System.getenv("BOOTSTRAP_SERVERS");
@@ -41,8 +42,11 @@ public class KafkaConsumerConfig {
         String additionalConfig = System.getenv()
                 .getOrDefault("ADDITIONAL_CONFIG", "");
 
+        int partitionPercentage = Integer.parseInt(System.getenv("PARTITION_PERCENTAGE"));
+
+
         return new KafkaConsumerConfig(bootstrapServers, topic, groupId, clientRack,
-                messageCount, sleep, additionalConfig);
+                messageCount, sleep, additionalConfig, partitionPercentage);
     }
 
     public static Properties createProperties(KafkaConsumerConfig config) {
