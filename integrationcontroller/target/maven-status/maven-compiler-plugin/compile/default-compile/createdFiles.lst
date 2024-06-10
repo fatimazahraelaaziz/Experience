@@ -32,18 +32,17 @@ ArrivalRequest.class
 AssignmentServiceGrpc$2.class
 Service.class
 AssignmentRequestOrBuilder.class
-BinPackLag2.class
 PartitionGrpc.class
 AssignmentServiceGrpc$AssignmentServiceImplBase.class
 ArrivalServiceGrpc$ArrivalServiceFileDescriptorSupplier.class
 AssignmentServer.class
 PartitionGrpc$Builder.class
+BinPackState.class
 AssignmentRequest$Builder.class
 ArrivalServiceGrpc$2.class
 ConsumerGrpc$Builder.class
 AssignmentServiceGrpc$AssignmentServiceStub.class
 ArrivalResponseOrBuilder.class
-BinPackState2.class
 Main.class
 AssignmentServiceGrpc.class
 AssignmentServiceGrpc$3.class
@@ -53,6 +52,7 @@ AssignmentResponse.class
 ArrivalServiceGrpc$ArrivalServiceStub.class
 ArrivalServiceGrpc$1.class
 AssignmentServiceGrpc$1.class
+BinPackLag.class
 ArrivalServiceGrpc$ArrivalServiceBlockingStub.class
 PartitionGrpcOrBuilder.class
 AssignmentServiceGrpc$AssignmentServiceBlockingStub.class

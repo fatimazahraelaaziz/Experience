@@ -8,8 +8,8 @@ import java.util.concurrent.ExecutionException;
 public class Main {
 
     private static final Logger log = LogManager.getLogger(Main.class);
-    static BinPackState2 bps;
-    static BinPackLag2 bpl;
+    static BinPackState bps;
+    static BinPackLag bpl;
 
 
     public static void main(String[] args) throws ExecutionException, InterruptedException {
@@ -18,8 +18,8 @@ public class Main {
 
 
     private static void initialize() throws InterruptedException, ExecutionException {
-        bps = new BinPackState2();
-        bpl = new BinPackLag2();
+        bps = new BinPackState();
+        bpl = new BinPackLag();
         Lag.readEnvAndCrateAdminClient();
         log.info("Warming 15 seconds.");
         Thread.sleep(15 * 1000);
@@ -43,37 +43,14 @@ public class Main {
     }
 
 
-
-
-
-
-
-   /* private static void scaleLogicTail() throws InterruptedException {
-        if  (Duration.between(BinPackLag2.LastUpScaleDecision, Instant.now()).getSeconds() >3) {
-            BinPackState2.scaleAsPerBinPack();
-            if (BinPackState2.action.equals("up") || BinPackState2.action.equals("down") || BinPackState2.action.equals("REASS") ) {
-                BinPackLag2.scaleAsPerBinPack();
-            }
-        } else {
-            log.info("No scale group 1 cooldown");
-        }
-    }*/
-
-
-
-
-
-
-
-
     private static void scaleLogicTail2() throws InterruptedException, ExecutionException {
-        if (Lag.queryConsumerGroup() != BinPackState2.size) {
+        if (Lag.queryConsumerGroup() != BinPackState.size) {
             log.info("no action, previous action is not seen yet");
             return;
         }
-            BinPackState2.scaleAsPerBinPack();
-            if (BinPackState2.action.equals("up") || BinPackState2.action.equals("down") || BinPackState2.action.equals("REASS") ) {
-                BinPackLag2.scaleAsPerBinPack();
+            BinPackState.scaleAsPerBinPack();
+            if (BinPackState.action.equals("up") || BinPackState.action.equals("down") || BinPackState.action.equals("REASS") ) {
+                BinPackLag.scaleAsPerBinPack();
         }
     }
 

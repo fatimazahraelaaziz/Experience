@@ -24,8 +24,8 @@ public class Lag {
 
 
     public  static void readEnvAndCrateAdminClient() throws ExecutionException, InterruptedException {
-        topic = "testtopic1";
-        CONSUMER_GROUP = "testgroup1";
+        topic = System.getenv("TOPIC");
+        CONSUMER_GROUP = System.getenv("GROUP_ID");
         BOOTSTRAP_SERVERS = System.getenv("BOOTSTRAP_SERVERS");
         Properties props = new Properties();
         props.put(AdminClientConfig.BOOTSTRAP_SERVERS_CONFIG, BOOTSTRAP_SERVERS);
@@ -36,6 +36,7 @@ public class Lag {
             partitions.add(p);
         }
     }
+
 
 
     public static void getCommittedLatestOffsetsAndLag() throws ExecutionException, InterruptedException {

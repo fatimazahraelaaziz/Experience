@@ -12,6 +12,12 @@ import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Properties;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.util.Date;
+import java.util.List;
+import java.util.concurrent.CountDownLatch;
 
 
 public class ConsumerMain {
@@ -56,6 +62,8 @@ public class ConsumerMain {
 
         double max=0;
 
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM/dd/yyyy'T'HH:mm:ss.SSSSSS");
+        Logger logger= LogManager.getLogger(ConsumerMain.class);
 
 
         try {
@@ -77,7 +85,7 @@ public class ConsumerMain {
                                 }
 
                                 log.info("sleep is {}", sleep);
-                                log.info("long sleep  {}", (long)sleep);
+                                log.info(" long sleep  {}", (long)sleep);
 
                                 Thread.sleep((long)sleep);
                                // Thread.sleep(5);
@@ -92,7 +100,11 @@ public class ConsumerMain {
                                 } else {
                                     eventsViolating++;
                                 }
-                                log.info(" latency is {}", System.currentTimeMillis() - record.timestamp());
+
+                                Timestamp timestamp = new Timestamp(record.timestamp());
+                                Date date = new Date(timestamp.getTime());
+                                logger.info(" latency is {}, insertion time is {}, processing time is {}",
+                                System.currentTimeMillis() - record.timestamp(), simpleDateFormat.format(date), Instant.now());
 
 
                             } catch (InterruptedException e) {
