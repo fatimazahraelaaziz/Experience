@@ -44,6 +44,37 @@ public final class ArrivalServiceGrpc {
     return getArrivalRateMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<RateRequest,
+      RateResponse> getConsumptionRateeMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "consumptionRatee",
+      requestType = RateRequest.class,
+      responseType = RateResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<RateRequest,
+      RateResponse> getConsumptionRateeMethod() {
+    io.grpc.MethodDescriptor<RateRequest, RateResponse> getConsumptionRateeMethod;
+    if ((getConsumptionRateeMethod = ArrivalServiceGrpc.getConsumptionRateeMethod) == null) {
+      synchronized (ArrivalServiceGrpc.class) {
+        if ((getConsumptionRateeMethod = ArrivalServiceGrpc.getConsumptionRateeMethod) == null) {
+          ArrivalServiceGrpc.getConsumptionRateeMethod = getConsumptionRateeMethod =
+              io.grpc.MethodDescriptor.<RateRequest, RateResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "consumptionRatee"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  RateRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  RateResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new ArrivalServiceMethodDescriptorSupplier("consumptionRatee"))
+              .build();
+        }
+      }
+    }
+    return getConsumptionRateeMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -99,6 +130,13 @@ public final class ArrivalServiceGrpc {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getArrivalRateMethod(), responseObserver);
     }
 
+    /**
+     */
+    public void consumptionRatee(RateRequest request,
+        io.grpc.stub.StreamObserver<RateResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getConsumptionRateeMethod(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -108,6 +146,13 @@ public final class ArrivalServiceGrpc {
                 ArrivalRequest,
                 ArrivalResponse>(
                   this, METHODID_ARRIVAL_RATE)))
+          .addMethod(
+            getConsumptionRateeMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                RateRequest,
+                RateResponse>(
+                  this, METHODID_CONSUMPTION_RATEE)))
           .build();
     }
   }
@@ -133,6 +178,14 @@ public final class ArrivalServiceGrpc {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getArrivalRateMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     */
+    public void consumptionRatee(RateRequest request,
+        io.grpc.stub.StreamObserver<RateResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getConsumptionRateeMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -154,6 +207,13 @@ public final class ArrivalServiceGrpc {
     public ArrivalResponse arrivalRate(ArrivalRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getArrivalRateMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public RateResponse consumptionRatee(RateRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getConsumptionRateeMethod(), getCallOptions(), request);
     }
   }
 
@@ -178,9 +238,18 @@ public final class ArrivalServiceGrpc {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getArrivalRateMethod(), getCallOptions()), request);
     }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<RateResponse> consumptionRatee(
+        RateRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getConsumptionRateeMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_ARRIVAL_RATE = 0;
+  private static final int METHODID_CONSUMPTION_RATEE = 1;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -202,6 +271,10 @@ public final class ArrivalServiceGrpc {
         case METHODID_ARRIVAL_RATE:
           serviceImpl.arrivalRate((ArrivalRequest) request,
               (io.grpc.stub.StreamObserver<ArrivalResponse>) responseObserver);
+          break;
+        case METHODID_CONSUMPTION_RATEE:
+          serviceImpl.consumptionRatee((RateRequest) request,
+              (io.grpc.stub.StreamObserver<RateResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -265,6 +338,7 @@ public final class ArrivalServiceGrpc {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new ArrivalServiceFileDescriptorSupplier())
               .addMethod(getArrivalRateMethod())
+              .addMethod(getConsumptionRateeMethod())
               .build();
         }
       }

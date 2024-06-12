@@ -6,6 +6,8 @@ AssignmentResponseOrBuilder.class
 ArrivalRequest$Builder.class
 ArrivalResponse$Builder.class
 ArrivalServiceGrpc$ArrivalServiceMethodDescriptorSupplier.class
+RateRequest$1.class
+RateResponse.class
 service.proto
 ArrivalServiceGrpc$ArrivalServiceImplBase.class
 ArrivalResponse$1.class
@@ -43,7 +45,9 @@ ArrivalServiceGrpc$2.class
 ConsumerGrpc$Builder.class
 AssignmentServiceGrpc$AssignmentServiceStub.class
 ArrivalResponseOrBuilder.class
+RateRequestOrBuilder.class
 Main.class
+RateResponse$1.class
 AssignmentServiceGrpc.class
 AssignmentServiceGrpc$3.class
 ArrivalServiceGrpc.class
@@ -51,14 +55,18 @@ ArrivalRequest$1.class
 AssignmentResponse.class
 ArrivalServiceGrpc$ArrivalServiceStub.class
 ArrivalServiceGrpc$1.class
+RateResponse$Builder.class
 AssignmentServiceGrpc$1.class
 BinPackLag.class
 ArrivalServiceGrpc$ArrivalServiceBlockingStub.class
 PartitionGrpcOrBuilder.class
 AssignmentServiceGrpc$AssignmentServiceBlockingStub.class
 ConsumerGrpc.class
+RateRequest.class
 ArrivalResponse.class
 AssignmentServiceGrpc$AssignmentServiceFileDescriptorSupplier.class
 AssignmentServiceGrpc$AssignmentServiceBaseDescriptorSupplier.class
+RateRequest$Builder.class
+RateResponseOrBuilder.class
 AssignmentRequest$1.class
 log4j2.properties

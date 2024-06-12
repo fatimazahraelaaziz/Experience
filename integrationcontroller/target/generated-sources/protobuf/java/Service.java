@@ -22,6 +22,16 @@ public final class Service {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_ArrivalRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_RateResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_RateResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_RateRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_RateRequest_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -33,9 +43,12 @@ public final class Service {
     java.lang.String[] descriptorData = {
       "\n\rservice.proto\"\"\n\017ArrivalResponse\022\017\n\007ar" +
       "rival\030\001 \001(\002\"(\n\016ArrivalRequest\022\026\n\016arrival" +
-      "request\030\001 \001(\t2D\n\016ArrivalService\0222\n\013arriv" +
-      "alRate\022\017.ArrivalRequest\032\020.ArrivalRespons" +
-      "e\"\000B\002P\001b\006proto3"
+      "request\030\001 \001(\t\"\034\n\014RateResponse\022\014\n\004rate\030\001 " +
+      "\001(\002\"\"\n\013RateRequest\022\023\n\013raterequest\030\001 \001(\t2" +
+      "w\n\016ArrivalService\0222\n\013arrivalRate\022\017.Arriv" +
+      "alRequest\032\020.ArrivalResponse\"\000\0221\n\020consump" +
+      "tionRatee\022\014.RateRequest\032\r.RateResponse\"\000" +
+      "B\002P\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -53,6 +66,18 @@ public final class Service {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ArrivalRequest_descriptor,
         new java.lang.String[] { "Arrivalrequest", });
+    internal_static_RateResponse_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_RateResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_RateResponse_descriptor,
+        new java.lang.String[] { "Rate", });
+    internal_static_RateRequest_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_RateRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_RateRequest_descriptor,
+        new java.lang.String[] { "Raterequest", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)
