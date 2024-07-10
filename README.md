@@ -1,6 +1,4 @@
-# Microservice Consumer Repository
-
-## Overview
+# Overview
 
 This repository contains a set of microservices designed for different scenarios, including a single consumer microservice and a DAG of multiple consumer microservices. The project utilizes Kafka for communication between the producer and consumer microservices.
 
@@ -9,15 +7,15 @@ This repository contains a set of microservices designed for different scenarios
 ### Single Microservice Consumer
 
 1. **Integration Controller**
-   - **Path**: `integrationcontroller`
+   - **Path**: [integrationcontroller](https://github.com/fatimazahraelaaziz/Experience/tree/master/integrationcontroller)
    - **Description**: This repository contains the controller responsible for implementing the bin packing algorithm.
 
 2. **Variable Consumer**
-   - **Path**: `variableconsumer`
+   - **Path**: [variableconsumer](https://github.com/fatimazahraelaaziz/Experience/tree/master/variableconsumer)
    - **Description**: This repository contains the consumer microservice implemented using Kafka.
 
 3. **Producer**
-   - **Path**: `produceri3s`
+   - **Path**: [produceri3s](https://github.com/fatimazahraelaaziz/Experience/tree/master/produceri3s)
    - **Description**: This repository models the producer microservice using Apache Kafka.
 
 ### DAG of Multiple Microservice Consumers
@@ -31,7 +29,7 @@ This repository contains a set of microservices designed for different scenarios
    - **Description**: This repository contains the implementation of the consumer microservices for the DAG scenario.
 
 3. **Producer**
-   - **Path**: `produceri3s`
+   - **Path**: [produceri3s](https://github.com/fatimazahraelaaziz/Experience/tree/master/produceri3s)
    - **Description**: The producer implementation remains unchanged and continues to use Apache Kafka.
 
 ## Getting Started
@@ -50,21 +48,9 @@ This repository contains a set of microservices designed for different scenarios
     cd Experience
     ```
 
-2. Build each microservice using Maven:
+2. Build the project using Maven:
     ```sh
-    cd integrationcontroller
-    mvn clean install
-
-    cd ../variableconsumer
-    mvn clean install
-
-    cd ../produceri3s
-    mvn clean install
-
-    cd ../graphcontroller2
-    mvn clean install
-
-    cd ../multipleconsumers
+    cd /Experience
     mvn clean install
     ```
 
