@@ -39,6 +39,7 @@ This repository contains a set of microservices designed for different scenarios
 - [Java JDK](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) (version 11 or later)
 - [Kafka](https://kafka.apache.org/)
 - [Maven](https://maven.apache.org/) (for building the project)
+- [Docker](https://www.docker.com/) (for containerized deployment)
 
 ### Installation
 
@@ -54,6 +55,19 @@ This repository contains a set of microservices designed for different scenarios
     mvn clean install
     ```
 
+### Dockerfile
+
+This project includes a [Dockerfile](https://github.com/fatimazahraelaaziz/Experience/blob/master/Dockerfile) to containerize the microservices. Using this Dockerfile, you can build a single Docker image for all the microservices mentioned in this repository.
+
+1. Build Docker Image:
+```sh
+docker build -t <image-name>:<tag> .
+```
+
+2. Push Docker Image to Docker Hub:
+```sh
+docker push <username>/<image-name>:<tag>
+```
 
 ## Usage
 
