@@ -128,8 +128,8 @@ public class BinPackLag {
             int j;
             consumers.clear();
             for (int t = 0; t < consumerCount; t++) {
-                consumers.add(new Consumer((String.valueOf(t)),  (long)(200*wsla*fup),
-                        200*fup/*dynamicAverageMaxConsumptionRate*wsla*/));
+                consumers.add(new Consumer((String.valueOf(t)),  (long)(mu*wsla*fup),
+                        mu*fup/*dynamicAverageMaxConsumptionRate*wsla*/));
             }
 
             for (j = 0; j < parts.size(); j++) {

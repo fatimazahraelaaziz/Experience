@@ -18,6 +18,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.concurrent.CountDownLatch;
 import java.util.TimeZone;
+import java.time.Instant;
 
 public class ConsumerMain {
     private static final Logger log = LogManager.getLogger(ConsumerMain.class);
@@ -35,8 +36,10 @@ public class ConsumerMain {
     static Double maxConsumptionRatePerConsumer1 = 0.0d;
 
     static double scale = Double.valueOf(System.getenv("SCALE"));
+    static double time_to_commit = Double.valueOf(System.getenv("TIME_TO_COMMIT"));
     static double shape = Double.valueOf(System.getenv("SHAPE"));
     static ParetoDistribution dist = new ParetoDistribution(scale, shape);
+    static double wsla_s = Double.valueOf(System.getenv("WSLA"));
 
     public ConsumerMain() throws IOException, URISyntaxException, InterruptedException {
     }
@@ -55,15 +58,24 @@ public class ConsumerMain {
 
         addShutDownHook();
 
+
         double max = 0;
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM/dd/yyyy'T'HH:mm:ss.SSSSSS");
         simpleDateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));  // Définir le fuseau horaire sur UTC
 
         Logger logger = LogManager.getLogger(ConsumerMain.class);
+
+        Instant lastCommitTime = Instant.now();
  
         try {
             while (true) {
                 ConsumerRecords<String, Customer> records = consumer.poll(Duration.ofMillis(Long.MAX_VALUE));
+                if (Duration.between(lastCommitTime, Instant.now()).toMillis() >= time_to_commit) {
+                    consumer.commitAsync();
+                    //consumer.commitAsync();
+                    lastCommitTime = Instant.now();
+
+                }
 
                 if (records.count() != 0) {
                     for (ConsumerRecord<String, Customer> record : records) {
@@ -82,7 +94,7 @@ public class ConsumerMain {
                             PrometheusUtils.processingTime.setDuration(sleep);
                             PrometheusUtils.totalLatencyTime.setDuration(System.currentTimeMillis() - record.timestamp());
 
-                            if (System.currentTimeMillis() - record.timestamp() <= 500) {
+                            if (System.currentTimeMillis() - record.timestamp() <= wsla_s) {
                                 eventsNonViolating++;
                             } else {
                                 eventsViolating++;
@@ -103,9 +115,9 @@ public class ConsumerMain {
                     }
                 }
 
+
                 PrometheusUtils.processingTime.setDuration(max);
                 max = 0;
-                consumer.commitSync();
                 log.info("In this poll, received {} events", records.count());
             }
         } catch (WakeupException e) {

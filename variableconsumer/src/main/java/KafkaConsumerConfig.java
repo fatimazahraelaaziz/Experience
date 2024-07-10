@@ -49,6 +49,7 @@ public class KafkaConsumerConfig {
         Properties props = new Properties();
         props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, config.getBootstrapServers());
         props.put(ConsumerConfig.GROUP_ID_CONFIG, config.getGroupId());
+        
         if (config.getClientRack() != null) {
             props.put(ConsumerConfig.CLIENT_RACK_CONFIG, config.getClientRack());
         }
@@ -60,6 +61,7 @@ public class KafkaConsumerConfig {
                 "org.apache.kafka.common.serialization.StringDeserializer");
         props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG,
                 CustomerDeserializer.class.getName());
+        props.put(ConsumerConfig.HEARTBEAT_INTERVAL_MS_CONFIG, "3000");
 
         if (!config.getAdditionalConfig().isEmpty()) {
             StringTokenizer tok = new StringTokenizer(config.getAdditionalConfig(), ", \t\n\r");

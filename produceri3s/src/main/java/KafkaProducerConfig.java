@@ -9,7 +9,7 @@ import java.util.StringTokenizer;
 public class KafkaProducerConfig {
     private static final Logger log = LogManager.getLogger(KafkaProducerConfig.class);
 
-    private static final long DEFAULT_MESSAGES_COUNT = 10; //pourquoi ce conteur? 
+    private static final long DEFAULT_MESSAGES_COUNT = 10;  
     private static final String DEFAULT_MESSAGE = "Let's test assignors";
     private final String bootstrapServers;
     private final String topic;
@@ -19,7 +19,7 @@ public class KafkaProducerConfig {
     private final String acks;
     private final String headers;
     private final String additionalConfig;
-    //j'ai pas compris a quoi servent ces parametres
+    
     public KafkaProducerConfig(String bootstrapServers, String topic,
                                int delay, Long messageCount, String message,
                                String acks, String additionalConfig, String headers) {
@@ -33,7 +33,7 @@ public class KafkaProducerConfig {
         this.additionalConfig = additionalConfig;
     }
 
-    //do I have to define these environment variables?
+    
     
     public static KafkaProducerConfig fromEnv() {
         String bootstrapServers = System.getenv("BOOTSTRAP_SERVERS");

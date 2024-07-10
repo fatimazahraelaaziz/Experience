@@ -244,7 +244,7 @@ public class BinPackPartitionAssignor extends AbstractAssignor {
         AssignmentServiceGrpc.AssignmentServiceBlockingStub assignmentServiceBlockingStub =
                 AssignmentServiceGrpc.newBlockingStub(managedChannel);
         AssignmentRequest request = AssignmentRequest.newBuilder()
-                .setRequest("Give me the Assignment plz").build();
+                .setRequest("Give me the Assignment please").build();
 
         LOGGER.info("connected to server ");
         AssignmentResponse reply = assignmentServiceBlockingStub.getAssignment(request);

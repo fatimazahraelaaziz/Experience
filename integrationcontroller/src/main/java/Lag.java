@@ -7,6 +7,8 @@ import org.apache.logging.log4j.Logger;
 
 import java.util.*;
 import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutionException;
+import java.text.SimpleDateFormat;
 
 public class Lag {
     private static final Logger log = LogManager.getLogger(Lag.class);
@@ -59,9 +61,11 @@ public class Lag {
             totalLag += partitions.get(i).getLag();
             log.info("partition {} has lag {}", i, partitions.get(i).getLag());
         }
-        
-        //addParentLag(totalLag);
-        log.info("total lag {}", totalLag);
+// Get the current date and time in the specified format
+SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy'T'HH:mm:ss.SSSSSS");
+String currentTime = sdf.format(new Date(System.currentTimeMillis()));
+
+log.info("total lag {} at {}", totalLag, currentTime);
     }
 
 

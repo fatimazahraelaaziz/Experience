@@ -33,9 +33,11 @@ public class Main {
 
 
             //scaleLogic();
-            scaleLogicTail2();
+            scaleLogicTail();
             double di = Double.valueOf(System.getenv("DI"));
-            log.info("Sleeping for 1 seconds");
+            // Convert 'di' from milliseconds to seconds for logging purposes
+            double diInSeconds = di / 1000;
+            log.info("Sleeping for {} seconds", diInSeconds);
             log.info("******************************************");
             log.info("******************************************");
             Thread.sleep((long)di);
@@ -43,7 +45,30 @@ public class Main {
     }
 
 
-    private static void scaleLogicTail2() throws InterruptedException, ExecutionException {
+
+
+
+
+
+   /* private static void scaleLogicTail() throws InterruptedException {
+        if  (Duration.between(BinPackLag2.LastUpScaleDecision, Instant.now()).getSeconds() >3) {
+            BinPackState2.scaleAsPerBinPack();
+            if (BinPackState2.action.equals("up") || BinPackState2.action.equals("down") || BinPackState2.action.equals("REASS") ) {
+                BinPackLag2.scaleAsPerBinPack();
+            }
+        } else {
+            log.info("No scale group 1 cooldown");
+        }
+    }*/
+
+
+
+
+
+
+
+
+    private static void scaleLogicTail() throws InterruptedException, ExecutionException {
         if (Lag.queryConsumerGroup() != BinPackState.size) {
             log.info("no action, previous action is not seen yet");
             return;

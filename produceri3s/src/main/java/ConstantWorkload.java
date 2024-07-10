@@ -17,12 +17,16 @@ public class ConstantWorkload {
     static Instant start = Instant.now();
     public static void  startWorkload() throws IOException, URISyntaxException, InterruptedException {
 
-        final Logger log = LogManager.getLogger(OldWorkload.class);
+        final Logger log = LogManager.getLogger(ConstantWorkload.class);
 
         Random rnd = new Random();
-        // over all the workload
-
+        //During 10 minutes
         while (Duration.between(start, Instant.now()).getSeconds() < 60 * 10) {
+
+            log.debug("Current time: {}", Instant.now());
+            log.debug("Start time: {}", start);
+            log.debug("Elapsed time (seconds): {}", Duration.between(start, Instant.now()).getSeconds());
+
 
             //   loop over each sample
             for (long j = 0; j < 150; j++) {
@@ -33,7 +37,10 @@ public class ConstantWorkload {
             }
 
             log.info("sent {} events Per Second ", 150 );
+            ArrivalRate = 150;
             Thread.sleep(KafkaProducerExample.config.getDelay());
         }
+
+        ArrivalRate = 0;
     }
 }
