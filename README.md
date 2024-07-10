@@ -44,13 +44,13 @@ This repository contains a set of microservices designed for different scenarios
 
 1. Clone the repository:
     ```sh
-    git clone https://github.com/USERNAME/REPO](https://github.com/fatimazahraelaaziz/Experience.git
+    git clone https://github.com/fatimazahraelaaziz/Experience.git
     cd Experience
     ```
 
 2. Build the project using Maven:
     ```sh
-    cd /Experience
+    cd Experience
     mvn clean install
     ```
 
