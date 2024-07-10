@@ -29,7 +29,7 @@ This repository contains a set of microservices designed for different scenarios
 
 3. **Producer**
    - **Path**: [produceri3s](https://github.com/fatimazahraelaaziz/Experience/tree/main/produceri3s)
-   - **Description**: The producer implementation remains unchanged and continues to use Apache Kafka.
+   - **Description**: The producer implementation remains unchanged.
 
 ## Getting Started
 
