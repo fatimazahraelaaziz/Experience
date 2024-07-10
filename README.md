@@ -1,7 +1,6 @@
 # Overview
 
-This repository contains a set of microservices designed for different scenarios, including a single consumer microservice and a DAG of multiple consumer microservices. The project utilizes Kafka for communication between the producer and consumer microservices.
-
+This repository contains a set of microservices designed for different scenarios, including a single consumer microservice and a DAG of multiple consumer microservices. The project utilizes gRPC for communication between the different projects.
 ## Repository Structure
 
 ### Single Microservice Consumer
@@ -40,6 +39,7 @@ This repository contains a set of microservices designed for different scenarios
 - [Kafka](https://kafka.apache.org/)
 - [Maven](https://maven.apache.org/) (for building the project)
 - [Docker](https://www.docker.com/) (for containerized deployment)
+- [gRPC](https://grpc.io/) (for communication between projects)
 
 ### Installation
 
