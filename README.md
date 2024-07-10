@@ -6,29 +6,29 @@ This repository contains a set of microservices designed for different scenarios
 ### Single Microservice Consumer
 
 1. **Integration Controller**
-   - **Path**: [integrationcontroller](https://github.com/fatimazahraelaaziz/Experience/tree/master/integrationcontroller)
+   - **Path**: [integrationcontroller](https://github.com/fatimazahraelaaziz/Experience/tree/main/integrationcontroller)
    - **Description**: This repository contains the controller responsible for implementing the bin packing algorithm.
 
 2. **Variable Consumer**
-   - **Path**: [variableconsumer](https://github.com/fatimazahraelaaziz/Experience/tree/master/variableconsumer)
+   - **Path**: [variableconsumer](https://github.com/fatimazahraelaaziz/Experience/tree/main/variableconsumer)
    - **Description**: This repository contains the consumer microservice implemented using Kafka.
 
 3. **Producer**
-   - **Path**: [produceri3s](https://github.com/fatimazahraelaaziz/Experience/tree/master/produceri3s)
+   - **Path**: [produceri3s](https://github.com/fatimazahraelaaziz/Experience/tree/main/produceri3s)
    - **Description**: This repository models the producer microservice using Apache Kafka.
 
 ### DAG of Multiple Microservice Consumers
 
 1. **Graph Controller**
-   - **Path**: `graphcontroller2`
+   - **Path**: [graphcontroller2](https://github.com/fatimazahraelaaziz/Experience/tree/main/graphcontroller2)
    - **Description**: This repository contains the controller responsible for modeling the graph for the scenario involving multiple consumer microservices.
 
 2. **Multiple Consumers**
-   - **Path**: `multipleconsumers`
+   - **Path**: [multipleconsumers](https://github.com/fatimazahraelaaziz/Experience/tree/main/multipleConsumers)
    - **Description**: This repository contains the implementation of the consumer microservices for the DAG scenario.
 
 3. **Producer**
-   - **Path**: [produceri3s](https://github.com/fatimazahraelaaziz/Experience/tree/master/produceri3s)
+   - **Path**: [produceri3s](https://github.com/fatimazahraelaaziz/Experience/tree/main/produceri3s)
    - **Description**: The producer implementation remains unchanged and continues to use Apache Kafka.
 
 ## Getting Started
@@ -57,7 +57,7 @@ This repository contains a set of microservices designed for different scenarios
 
 ### Dockerfile
 
-This project includes a [Dockerfile](https://github.com/fatimazahraelaaziz/Experience/blob/master/Dockerfile) to containerize the microservices. Using this Dockerfile, you can build a single Docker image for all the microservices mentioned in this repository.
+This project includes a [Dockerfile](https://github.com/fatimazahraelaaziz/Experience/blob/main/Dockerfile) to containerize the microservices. Using this Dockerfile, you can build a single Docker image for all the microservices mentioned in this repository.
 
 1. Build Docker Image:
 ```sh
