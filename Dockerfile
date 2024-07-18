@@ -28,9 +28,9 @@ COPY produceri3s/target/i3s-1.0-SNAPSHOT.jar /app/producer.jar
 COPY variableconsumer/target/variableconsumer-1.0-SNAPSHOT.jar /app/consumer.jar
 
 # Copy log4j2.properties file
-COPY integrationcontroller/src/main/resources/log4j2.properties /bin/log4j2.properties
+COPY IntegrationController/src/main/resources/log4j2.properties /bin/log4j2.properties
 # Copy IntegrationController JAR
-ADD integrationcontroller/target/IntegrationController-1.0-SNAPSHOT.jar /app/Controller.jar
+ADD IntegrationController/target/IntegrationController-1.0-SNAPSHOT.jar /app/Controller.jar
 
 
 ## COPY ./scripts/ /bin
