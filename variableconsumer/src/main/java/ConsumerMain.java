@@ -70,13 +70,6 @@ public class ConsumerMain {
         try {
             while (true) {
                 ConsumerRecords<String, Customer> records = consumer.poll(Duration.ofMillis(Long.MAX_VALUE));
-                if (Duration.between(lastCommitTime, Instant.now()).toMillis() >= time_to_commit) {
-                    consumer.commitAsync();
-                    //consumer.commitAsync();
-                    lastCommitTime = Instant.now();
-
-                }
-
                 if (records.count() != 0) {
                     for (ConsumerRecord<String, Customer> record : records) {
                         totalEvents++;
@@ -108,6 +101,13 @@ public class ConsumerMain {
 
                             logger.info("latency is {}, insertion time is {}, processing time is {}",
                                     currentTimeMillis - record.timestamp(), simpleDateFormat.format(insertionDate), simpleDateFormat.format(currentDate));
+
+
+                            if (Duration.between(lastCommitTime, Instant.now()).toMillis() >= time_to_commit) {
+                                consumer.commitAsync();
+                                //consumer.commitAsync();
+                                lastCommitTime = Instant.now();
+                            }                      
 
                         } catch (InterruptedException e) {
                             e.printStackTrace();
