@@ -40,6 +40,7 @@ public class ConsumerMain {
     static double shape = Double.valueOf(System.getenv("SHAPE"));
     static ParetoDistribution dist = new ParetoDistribution(scale, shape);
     static double wsla_s = Double.valueOf(System.getenv("WSLA"));
+    static boolean async_commit = Boolean.valueOf(System.getenv("ASYNC_COMMIT"));
 
     public ConsumerMain() throws IOException, URISyntaxException, InterruptedException {
     }
@@ -66,11 +67,20 @@ public class ConsumerMain {
         Logger logger = LogManager.getLogger(ConsumerMain.class);
 
         Instant lastCommitTime = Instant.now();
- 
+        logger.info("Async commit is {}", ConsumerMain.async_commit);
         try {
             while (true) {
                 ConsumerRecords<String, Customer> records = consumer.poll(Duration.ofMillis(Long.MAX_VALUE));
                 if (records.count() != 0) {
+                    if (Math.abs(Duration.between(lastCommitTime, Instant.now()).toMillis()) >= time_to_commit) {
+                        if (ConsumerMain.async_commit) {
+                            consumer.commitAsync();
+                        } else {
+                           consumer.commitSync();
+                        }
+                        logger.info("Committed offset at time {}", simpleDateFormat.format(new Date(System.currentTimeMillis())));
+                        lastCommitTime = Instant.now();
+                    }  
                     for (ConsumerRecord<String, Customer> record : records) {
                         totalEvents++;
                         try {
@@ -103,9 +113,13 @@ public class ConsumerMain {
                                     currentTimeMillis - record.timestamp(), simpleDateFormat.format(insertionDate), simpleDateFormat.format(currentDate));
 
 
-                            if (Duration.between(lastCommitTime, Instant.now()).toMillis() >= time_to_commit) {
-                                consumer.commitAsync();
-                                //consumer.commitAsync();
+                            if (Math.abs(Duration.between(lastCommitTime, Instant.now()).toMillis()) >= time_to_commit) {
+                                if (ConsumerMain.async_commit) {
+                                    consumer.commitAsync();
+                                } else {
+                                   consumer.commitSync();
+                                }
+                                logger.info("Committed offset at time {}", simpleDateFormat.format(new Date(System.currentTimeMillis())));
                                 lastCommitTime = Instant.now();
                             }                      
 
