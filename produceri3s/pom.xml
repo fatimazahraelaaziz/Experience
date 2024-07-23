@@ -20,6 +20,12 @@
         <artifactId>slf4j-simple</artifactId>
         <version>${slf4j-simple.version}</version>
     </dependency>
+   
+     <dependency>
+       <groupId>org.apache.logging.log4j</groupId>
+       <artifactId>log4j-api</artifactId>
+       <version>2.12.1</version>
+     </dependency>
    </dependencies>
 
 
@@ -35,7 +41,7 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib/</classpathPrefix>
-                            <mainClass>KafkaProducerExample</mainClass>
+                            <mainClass>fr.unice.scale.latencyaware.producer.KafkaProducerExample</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
@@ -64,7 +70,7 @@
                             </filters>
                             <transformers>
                                 <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                    <mainClass>KafkaProducerExample</mainClass>
+                                    <mainClass>fr.unice.scale.latencyaware.producer.KafkaProducerExample</mainClass>
                                 </transformer>
                             </transformers>
                         </configuration>

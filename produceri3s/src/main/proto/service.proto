@@ -1,5 +1,7 @@
 syntax= "proto3";
 option java_multiple_files=true;
+option java_package = "fr.unice.scale.latencyaware.producer";
+
 
 service ArrivalService{
   rpc arrivalRate (ArrivalRequest) returns (ArrivalResponse) {};

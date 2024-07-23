@@ -1,3 +1,4 @@
+package fr.unice.scale.latencyaware.producer;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;

@@ -1,6 +1,8 @@
-import io.grpc.stub.StreamObserver;
+package fr.unice.scale.latencyaware.producer;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
+import io.grpc.stub.StreamObserver;
 
 public class ArrivalServiceImpl extends ArrivalServiceGrpc.ArrivalServiceImplBase {
     private static final Logger log = LogManager.getLogger(ArrivalServiceImpl.class);

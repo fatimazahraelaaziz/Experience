@@ -1,3 +1,4 @@
+package fr.unice.scale.latencyaware.producer;
 
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerRecord;
@@ -31,7 +32,7 @@ public class ConstantWorkload {
             //   loop over each sample
             for (long j = 0; j < 150; j++) {
                 Customer custm = new Customer(rnd.nextInt(), UUID.randomUUID().toString());
-                KafkaProducerExample.
+                fr.unice.scale.latencyaware.producer.KafkaProducerExample.
                         producer.send(new ProducerRecord<String, Customer>(KafkaProducerExample.config.getTopic(),
                                 null, null, UUID.randomUUID().toString(), custm));
             }

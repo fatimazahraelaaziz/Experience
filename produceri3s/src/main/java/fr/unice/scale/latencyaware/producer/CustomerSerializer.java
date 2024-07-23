@@ -1,5 +1,7 @@
+package fr.unice.scale.latencyaware.producer;
 import org.apache.kafka.common.errors.SerializationException;
 import org.apache.kafka.common.serialization.Serializer;
+import fr.unice.scale.latencyaware.producer.Customer;
 
 import java.nio.ByteBuffer;
 import java.util.Map;

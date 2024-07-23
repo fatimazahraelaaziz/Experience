@@ -1,11 +1,12 @@
-import org.apache.kafka.clients.producer.KafkaProducer;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
+package fr.unice.scale.latencyaware.producer;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.Properties;
 import java.util.Random;
+
+import org.apache.kafka.clients.producer.KafkaProducer;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 
 public class KafkaProducerExample {
