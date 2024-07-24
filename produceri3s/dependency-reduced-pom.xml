@@ -19,9 +19,28 @@
             <manifest>
               <addClasspath>true</addClasspath>
               <classpathPrefix>lib/</classpathPrefix>
-              <mainClass>KafkaProducerExample</mainClass>
+              <mainClass>fr.unice.scale.latencyaware.producer.KafkaProducerExample</mainClass>
             </manifest>
           </archive>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.xolstice.maven.plugins</groupId>
+        <artifactId>protobuf-maven-plugin</artifactId>
+        <version>0.6.1</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>compile</goal>
+              <goal>compile-custom</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <protocArtifact>com.google.protobuf:protoc:3.19.1:exe:${os.detected.classifier}</protocArtifact>
+          <pluginId>grpc-java</pluginId>
+          <pluginArtifact>io.grpc:protoc-gen-grpc-java:1.43.1:exe:${os.detected.classifier}</pluginArtifact>
+          <protoSourceRoot>${project.basedir}/../proto</protoSourceRoot>
         </configuration>
       </plugin>
       <plugin>
@@ -46,7 +65,7 @@
               </filters>
               <transformers>
                 <transformer>
-                  <mainClass>KafkaProducerExample</mainClass>
+                  <mainClass>fr.unice.scale.latencyaware.producer.KafkaProducerExample</mainClass>
                 </transformer>
               </transformers>
             </configuration>

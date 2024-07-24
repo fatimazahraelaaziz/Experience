@@ -18,7 +18,7 @@ public class BiasedWorkload {
     static float ArrivalRate;
 
     public static void startWorkload() throws IOException, URISyntaxException, InterruptedException {
-        final Logger log = LogManager.getLogger(NonUniformWorkload.class);
+        final Logger log = LogManager.getLogger(BiasedWorkload.class);
         Workload wrld = new Workload();
 
         Random rnd = new Random();

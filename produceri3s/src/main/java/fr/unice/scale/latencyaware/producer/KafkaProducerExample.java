@@ -26,7 +26,8 @@ public class KafkaProducerExample {
         producer = new KafkaProducer<String, Customer>(props);
         startServer();
 
-        NonUniformWorkload.startWorkload();
+        BiasedWorkload.startWorkload();
+        // NonUniformWorkload.startWorkload();
         //ConstantWorkload.startWorkload();
         //OldWorkload.startWorkloadUniform();
 

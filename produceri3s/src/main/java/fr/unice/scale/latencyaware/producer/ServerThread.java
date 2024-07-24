@@ -5,7 +5,6 @@ import io.grpc.protobuf.services.ProtoReflectionService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import fr.unice.scale.latencyaware.producer.ArrivalServiceImpl;
 
 import java.io.IOException;
 
