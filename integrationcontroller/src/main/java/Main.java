@@ -38,7 +38,7 @@ public class Main {
             // Convert 'di' from milliseconds to seconds for logging purposes
             double diInSeconds = di / 1000;
             log.info("Sleeping for {} seconds", diInSeconds);
-            log.info("******************************************");
+            log.info("******************************************" + Thread.currentThread().getId());
             log.info("******************************************");
             Thread.sleep((long)di);
         }

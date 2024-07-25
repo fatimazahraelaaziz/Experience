@@ -61,7 +61,7 @@ public class ConsumerMain {
 
 
         double max = 0;
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM/dd/yyyy'T'HH:mm:ss.SSSSSS");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM/dd/yyyy'T'HH:mm:ss.SSS");
         simpleDateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));  // Définir le fuseau horaire sur UTC
 
         Logger logger = LogManager.getLogger(ConsumerMain.class);
@@ -70,17 +70,12 @@ public class ConsumerMain {
         logger.info("Async commit is {}", ConsumerMain.async_commit);
         try {
             while (true) {
-                ConsumerRecords<String, Customer> records = consumer.poll(Duration.ofMillis(Long.MAX_VALUE));
+                //Check for commit even if no records are received
+                //just in case we have commited while processing the last batch
+                lastCommitTime = checkForCommit(simpleDateFormat, logger, lastCommitTime);  
+
+                ConsumerRecords<String, Customer> records = consumer.poll(Duration.ofMillis((long)time_to_commit));
                 if (records.count() != 0) {
-                    if (Math.abs(Duration.between(lastCommitTime, Instant.now()).toMillis()) >= time_to_commit) {
-                        if (ConsumerMain.async_commit) {
-                            consumer.commitAsync();
-                        } else {
-                           consumer.commitSync();
-                        }
-                        logger.info("Committed offset at time {}", simpleDateFormat.format(new Date(System.currentTimeMillis())));
-                        lastCommitTime = Instant.now();
-                    }  
                     for (ConsumerRecord<String, Customer> record : records) {
                         totalEvents++;
                         try {
@@ -113,15 +108,7 @@ public class ConsumerMain {
                                     currentTimeMillis - record.timestamp(), simpleDateFormat.format(insertionDate), simpleDateFormat.format(currentDate));
 
 
-                            if (Math.abs(Duration.between(lastCommitTime, Instant.now()).toMillis()) >= time_to_commit) {
-                                if (ConsumerMain.async_commit) {
-                                    consumer.commitAsync();
-                                } else {
-                                   consumer.commitSync();
-                                }
-                                logger.info("Committed offset at time {}", simpleDateFormat.format(new Date(System.currentTimeMillis())));
-                                lastCommitTime = Instant.now();
-                            }                      
+                            lastCommitTime = checkForCommit(simpleDateFormat, logger, lastCommitTime);                      
 
                         } catch (InterruptedException e) {
                             e.printStackTrace();
@@ -140,6 +127,19 @@ public class ConsumerMain {
             consumer.close();
             log.info("Closed consumer and we are done");
         }
+    }
+
+    private static Instant checkForCommit(SimpleDateFormat simpleDateFormat, Logger logger, Instant lastCommitTime) {
+        if (Math.abs(Duration.between(lastCommitTime, Instant.now()).toMillis()) >= time_to_commit) {
+            if (ConsumerMain.async_commit) {
+                consumer.commitAsync();
+            } else {
+               consumer.commitSync();
+            }
+            logger.info("Committed offset at time {}", simpleDateFormat.format(new Date(System.currentTimeMillis())));
+            lastCommitTime = Instant.now();
+        }
+        return lastCommitTime;
     }
 
     private static void addShutDownHook() {
