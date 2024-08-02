@@ -2,25 +2,17 @@ package org.example;
 
 public class Partition implements Comparable<Partition> {
     private int id;
-    private double arrivalRate;
     private long lag;
+    private double arrivalRate;
 
-    public Partition(int id, double arrivalRate, long lag) {
+    public Partition(int id, long lag, double arrivalRate) {
         this.id = id;
-        this.arrivalRate = arrivalRate;
         this.lag = lag;
+        this.arrivalRate = arrivalRate;
     }
 
     public int getId() {
         return id;
-    }
-
-    public double getArrivalRate() {
-        return arrivalRate;
-    }
-
-    public void setArrivalRate(double arrivalRate) {
-        this.arrivalRate = arrivalRate;
     }
 
     public long getLag() {
@@ -31,9 +23,16 @@ public class Partition implements Comparable<Partition> {
         this.lag = lag;
     }
 
+    public double getArrivalRate() {
+        return arrivalRate;
+    }
+
+    public void setArrivalRate(double arrivalRate) {
+        this.arrivalRate = arrivalRate;
+    }
+
     @Override
     public int compareTo(Partition other) {
-        // Vous pouvez ajuster cette comparaison selon votre besoin.
-        return Double.compare(this.arrivalRate, other.arrivalRate);
+        return Long.compare(other.getLag(), this.lag);
     }
 }
