@@ -1,3 +1,5 @@
+package fr.unice.scale.latencyaware;
+
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

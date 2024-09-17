@@ -1,3 +1,5 @@
+package fr.unice.scale.latencyaware;
+
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
 import io.grpc.protobuf.services.ProtoReflectionService;

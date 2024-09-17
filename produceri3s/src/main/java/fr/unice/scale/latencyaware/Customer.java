@@ -1,3 +1,5 @@
+package fr.unice.scale.latencyaware;
+
 public class Customer {
 
     private int customerID;

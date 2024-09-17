@@ -1,3 +1,5 @@
+package fr.unice.scale.latencyaware;
+
 import org.apache.kafka.common.errors.SerializationException;
 import org.apache.kafka.common.serialization.Serializer;
 
