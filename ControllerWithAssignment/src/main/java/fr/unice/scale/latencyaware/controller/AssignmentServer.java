@@ -1,3 +1,5 @@
+package fr.unice.scale.latencyaware.controller;
+
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
 import io.grpc.stub.StreamObserver;
@@ -7,6 +9,12 @@ import org.apache.logging.log4j.Logger;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
+import fr.unice.scale.latencyaware.controller.ConsumerGrpc;
+import fr.unice.scale.latencyaware.controller.PartitionGrpc;
+import fr.unice.scale.latencyaware.controller.AssignmentServiceGrpc;
+import fr.unice.scale.latencyaware.controller.AssignmentRequest;
+import fr.unice.scale.latencyaware.controller.AssignmentResponse;
 
 public class AssignmentServer implements Runnable {
     private final int port;

@@ -1,4 +1,4 @@
-package prometheus;
+package fr.unice.scale.latencyaware.controller.prometheus;
 
 public class Constants {
 

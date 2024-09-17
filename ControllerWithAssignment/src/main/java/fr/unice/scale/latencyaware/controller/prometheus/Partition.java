@@ -1,3 +1,5 @@
+package fr.unice.scale.latencyaware.controller.prometheus;
+
 public class Partition implements Comparable<Partition> {
 
     private int id;

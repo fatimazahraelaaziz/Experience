@@ -1,3 +1,5 @@
+package fr.unice.scale.latencyaware.controller;
+
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

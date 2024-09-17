@@ -1,4 +1,4 @@
-package prometheus;
+package fr.unice.scale.latencyaware.controller.prometheus;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

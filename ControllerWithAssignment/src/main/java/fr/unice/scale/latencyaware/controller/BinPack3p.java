@@ -1,3 +1,4 @@
+package fr.unice.scale.latencyaware.controller;
 
 import io.fabric8.kubernetes.client.KubernetesClient;
 import io.fabric8.kubernetes.client.KubernetesClientBuilder;

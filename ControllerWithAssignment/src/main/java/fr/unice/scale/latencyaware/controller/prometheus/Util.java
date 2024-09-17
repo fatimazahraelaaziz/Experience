@@ -1,4 +1,4 @@
-package prometheus;
+package fr.unice.scale.latencyaware.controller.prometheus;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;

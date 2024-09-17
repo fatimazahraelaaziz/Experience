@@ -12,6 +12,8 @@
         <module>IntegrationController</module>
         <module>produceri3s</module>
         <module>variableconsumer</module>
+        <module>ControllerWithAssignment</module>
+
     </modules>
 
     <properties>

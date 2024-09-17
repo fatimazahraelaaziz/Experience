@@ -1,3 +1,5 @@
+package fr.unice.scale.latencyaware.controller;
+
 import java.util.ArrayList;
 import java.util.List;
 
