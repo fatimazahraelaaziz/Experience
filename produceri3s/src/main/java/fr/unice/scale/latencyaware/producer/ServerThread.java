@@ -1,4 +1,4 @@
-package fr.unice.scale.latencyaware;
+package fr.unice.scale.latencyaware.producer;
 
 import io.grpc.Server;
 import io.grpc.ServerBuilder;

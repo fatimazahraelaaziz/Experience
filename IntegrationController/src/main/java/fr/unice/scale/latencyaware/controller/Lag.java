@@ -1,3 +1,5 @@
+package fr.unice.scale.latencyaware.controller;
+
 import org.apache.kafka.clients.admin.*;
 import org.apache.kafka.clients.consumer.OffsetAndMetadata;
 import org.apache.kafka.common.KafkaFuture;
@@ -7,6 +9,8 @@ import org.apache.logging.log4j.Logger;
 
 import java.util.*;
 import java.util.concurrent.ExecutionException;
+import fr.unice.scale.latencyaware.controller.Partition;
+
 
 public class Lag {
     private static final Logger log = LogManager.getLogger(Lag.class);

@@ -1,3 +1,4 @@
+package fr.unice.scale.latencyaware.controller;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import org.apache.logging.log4j.LogManager;
@@ -5,6 +6,9 @@ import org.apache.logging.log4j.Logger;
 
 import java.util.ArrayList;
 
+import fr.unice.scale.latencyaware.producer.ArrivalRequest;
+import fr.unice.scale.latencyaware.producer.ArrivalResponse;
+import fr.unice.scale.latencyaware.producer.ArrivalServiceGrpc;
 
 public class ArrivalProducer {
 

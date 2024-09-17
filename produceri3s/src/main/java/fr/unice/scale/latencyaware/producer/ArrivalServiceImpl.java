@@ -1,4 +1,4 @@
-package fr.unice.scale.latencyaware;
+package fr.unice.scale.latencyaware.producer;
 
 import io.grpc.stub.StreamObserver;
 import org.apache.logging.log4j.LogManager;
