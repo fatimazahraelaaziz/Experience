@@ -13,6 +13,7 @@
         <!--module>multipleConsumers</module-->
         <module>variableconsumer</module>
         <module>produceri3s</module>
+        <module>ControllerWithAssignment</module>
         <!--module>graphcontroller2</module-->
         <!--module>restructure</module-->
     </modules>
